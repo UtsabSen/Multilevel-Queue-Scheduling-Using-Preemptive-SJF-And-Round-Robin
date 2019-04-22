@@ -105,7 +105,7 @@ void process_execution(){
                 }
             }
         } else{
-            ++total_time;
+            total_time++;
         }
     }
 }
@@ -132,10 +132,26 @@ int main(){
     cout << "Gantt Chart\n";
     process_execution();
 
+    cout << "\n\nAll process executed\n";
+
     cout << "\n\nProcess\t Arrival Time\t Burst Time\t Queue\t Completion Time\t Turn Around Time\t Waiting Time\t\n";
     for (int i = 0; i < total_process; i++) {
         cout << "  P"<<(i+1) << "\t\t" << process[i].AT << "\t\t" << process[i].fixed_BT << "\t  " << process[i].queue <<
              "\t\t" << process[i].CT << "\t\t\t" << process[i].TAT << "\t\t\t" << process[i].WT << endl;
     }
+
+    float total_TAT = 0, total_WT = 0;
+    float avg_TAT = 0, avg_WT = 0;
+    for (int i = 0; i < total_process; i++) {
+        total_TAT += process[i].TAT;
+    }
+    avg_TAT = total_TAT / total_process;
+    for (int i = 0; i < total_process; i++) {
+        total_WT += process[i].WT;
+    }
+    avg_WT = total_WT / total_process;
+
+    cout << "\nAverage Turn Around Time: " << avg_TAT << endl;
+    cout << "\nAverage Waiting Time: " << avg_WT << endl << endl;
 
 }
