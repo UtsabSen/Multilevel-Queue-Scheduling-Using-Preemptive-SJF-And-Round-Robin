@@ -1,5 +1,6 @@
-#include<stdio.h>
 #include<iostream>
+#include<stdio.h>
+#include<conio.h>
 #include<windows.h>
 using namespace std;
 
@@ -105,40 +106,67 @@ void process_execution(){
                 }
             }
         } else{
-            total_time++;
+            ++total_time;
         }
     }
 }
 
-int main(){
-    cout << "Enter total process: ";
+int main() {
+    system("color 1F");
+    char welcome[100] = "\t\t\t\t\t\t\t-:Multilevel queue scheduler:-\n";
+    for(int i = 0; i < strlen(welcome); i++){
+        cout << welcome[i];
+        Sleep(50);
+    }
+
+    char question[500] = "\nQuestion: Design a scheduler with multilevel queue having two queues which will schedule the processes on the basis of pre-emptive shortest remaining processing time first algorithm (SROT) followed by a scheduling in which each process will get 2 units of time to execute. Also note that queue 1 has higher priority than queue 2. Consider the following set of processes (for reference)with their arrival times and the CPU burst times in milliseconds.\n";
+    for(int i = 0; i < strlen(question); i++){
+        cout << question[i];
+        Sleep(5);
+    }
+
+    char c[100] = "\nEnter total process: ";
+    for(int i = 0; i < strlen(c); i++){
+        cout << c[i];
+        Sleep(50);
+    }
     cin >> total_process;
     process = new processes[total_process];
 
-    for (int i = 0; i < total_process; i++){
+    for (int i = 0; i < total_process; i++) {
         cout << "\nProcess P" << (i+1) << endl;
-        cout << "AT: ";
+        cout << "\tP" << (i+1) << " Arrival Time: ";
         cin >> process[i].AT;
-        cout << "BT: ";
+        cout << "\tP" << (i+1) << " Burst Time: ";
         cin >> process[i].BT;
-        cout << "Queue: ";
+        cout << "\tP" << (i+1) << " Queue: ";
         cin >> process[i].queue;
         process[i].fixed_BT = process[i].BT;
     }
 
-
     total_queue = max_queue();
 
-    cout << "Gantt Chart\n";
+    system("cls");
+
+    for(int i = 0; i < strlen(welcome); i++){
+        cout << welcome[i];
+        Sleep(50);
+    }
+    cout << "\nGantt Chart\n";
     process_execution();
 
     cout << "\n\nAll process executed\n";
 
-    cout << "\n\nProcess\t Arrival Time\t Burst Time\t Queue\t Completion Time\t Turn Around Time\t Waiting Time\t\n";
+    getch();
+
+    cout << "\n\nProcess\t Arrival Time\t Burst Time\t Queue\t Completion Time\t Turn Around Time\t Waiting Time\t\n\n";
+
     for (int i = 0; i < total_process; i++) {
         cout << "  P"<<(i+1) << "\t\t" << process[i].AT << "\t\t" << process[i].fixed_BT << "\t  " << process[i].queue <<
-             "\t\t" << process[i].CT << "\t\t\t" << process[i].TAT << "\t\t\t" << process[i].WT << endl;
+             "\t\t" << process[i].CT << "\t\t\t" << process[i].TAT << "\t\t\t" << process[i].WT << endl << endl;
     }
+
+    getch();
 
     float total_TAT = 0, total_WT = 0;
     float avg_TAT = 0, avg_WT = 0;
@@ -154,4 +182,11 @@ int main(){
     cout << "\nAverage Turn Around Time: " << avg_TAT << endl;
     cout << "\nAverage Waiting Time: " << avg_WT << endl << endl;
 
+    getch();
+
+    char about[200] = "\n\t\tName: Utsab Sen\n\t\tRegistration No: 11709492\n\t\tRoll No: 22\n\t\tSection: K17TA\n\t\tLOVELY PROFESSIONAL UNIVERSITY\n\t\t...Thank you...\n";
+    for(int i = 0; i < strlen(about); i++){
+        cout << about[i];
+        Sleep(15);
+    }
 }
