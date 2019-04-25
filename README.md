@@ -1,2 +1,2 @@
-# Multilevel-Queue-Scheduling-Using-Premptive-SJF-And-Round-Robin
+# Multilevel-Queue-Scheduling-Using-Preemptive-SJF-And-Round-Robin
 Design a scheduler with multilevel queue having two queues which will schedule the processes on the basis of pre-emptive shortest remaining processing time first algorithm (SROT) followed by a scheduling in which each process will get 2 units of time to execute. Also note that queue 1 has higher priority than queue 2. Consider the following set of processes (for reference)with their arrival times and the CPU burst times in milliseconds. 
